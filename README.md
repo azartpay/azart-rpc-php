@@ -17,13 +17,13 @@ PHP 7.0 or higher (should also work on 5.6, but this is unsupported)
 ## Usage
 Create new object with url as parameter
 ```php
-use Denpa\Azart\Client as AzartClient;
+use AzartPay\Azart\Client as AzartClient;
 
 $azartd = new AzartClient('http://rpcuser:rpcpassword@localhost:8332/');
 ```
 or use array to define your azartd settings
 ```php
-use Denpa\Azart\Client as AzartClient;
+use AzartPay\Azart\Client as AzartClient;
 
 $azartd = new AzartClient([
     'scheme' => 'http',                 // optional, default http
@@ -70,7 +70,7 @@ $totalSatoshi = AzartClient::toSatoshi($totalAmount);
 ```
 To send asynchronous request, add Async to method name:
 ```php
-use Denpa\Azart\AzartdResponse;
+use AzartPay\Azart\AzartdResponse;
 
 $promise = $azartd->getBlockAsync(
     '000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f',
@@ -114,7 +114,7 @@ $txid = $result->get();
 ```
 or requestAsync method for asynchronous calls:
 ```php
-use Denpa\Azart\AzartdResponse;
+use AzartPay\Azart\AzartdResponse;
 
 $promise = $azartd->requestAsync(
     'getBlock',
