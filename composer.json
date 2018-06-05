@@ -1,9 +1,9 @@
 {
-    "name": "denpa/php-bitcoinrpc",
+    "name": "azartpay/azart-rpc-php",
     "type": "library",
-    "description": "Bitcoin JSON-RPC client based on GuzzleHttp",
-    "keywords": ["bitcoin","api","jsonrpc","guzzle"],
-    "homepage": "https://github.com/denpamusic/php-bitcoinrpc",
+    "description": "Azart JSON-RPC client based on GuzzleHttp",
+    "keywords": ["azart","api","jsonrpc","guzzle"],
+    "homepage": "https://github.com/azartpay/azart-rpc-php",
     "license": "MIT",
     "authors": [
         {
@@ -21,7 +21,7 @@
     },
     "autoload": {
         "psr-4" : {
-            "Denpa\\Bitcoin\\": "src"
+            "AzartPay\\Azart\\": "src"
         },
         "classmap" : [
             "tests"
