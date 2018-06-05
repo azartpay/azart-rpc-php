@@ -6,7 +6,7 @@ Simple Azart JSON-RPC client based on GuzzleHttp
 Run ```php composer.phar require azartpay/azart-rpc-php``` in your project directory or add following lines to composer.json
 ```javascript
 "require": {
-    "azartpay/azart-rpc-php": "^2.0"
+    "azartpay/azart-rpc-php": "2.0.3"
 }
 ```
 and run ```php composer.phar update```.
