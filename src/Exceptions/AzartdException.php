@@ -1,13 +1,13 @@
 <?php
 
-namespace Denpa\Bitcoin\Exceptions;
+namespace AzartPay\Azart\Exceptions;
 
 use RuntimeException;
 
-class BitcoindException extends RuntimeException
+class AzartdException extends RuntimeException
 {
     /**
-     * Construct new bitcoind exception.
+     * Construct new azartd exception.
      *
      * @param object $error
      *

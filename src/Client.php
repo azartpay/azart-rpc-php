@@ -1,6 +1,6 @@
 <?php
 
-namespace Denpa\Bitcoin;
+namespace AzartPay\Azart;
 
 use GuzzleHttp\Client as GuzzleHttp;
 use GuzzleHttp\ClientInterface;
@@ -40,7 +40,7 @@ class Client
         $handlerStack = HandlerStack::create();
         $handlerStack->push(
             Middleware::mapResponse(function (ResponseInterface $response) {
-                return BitcoindResponse::createFrom($response);
+                return AzartdResponse::createFrom($response);
             }),
             'json_response'
         );
@@ -98,7 +98,7 @@ class Client
     }
 
     /**
-     * Makes request to Bitcoin Core.
+     * Makes request to Azart Core.
      *
      * @param string $method
      * @param mixed  $params
@@ -118,7 +118,7 @@ class Client
 
             if ($response->hasError()) {
                 // throw exception on error
-                throw new Exceptions\BitcoindException($response->error());
+                throw new Exceptions\AzartdException($response->error());
             }
 
             return $response;
@@ -127,7 +127,7 @@ class Client
                 $exception->hasResponse() &&
                 $exception->getResponse()->hasError()
             ) {
-                throw new Exceptions\BitcoindException($exception->getResponse()->error());
+                throw new Exceptions\AzartdException($exception->getResponse()->error());
             }
 
             throw new Exceptions\ClientException(
@@ -138,7 +138,7 @@ class Client
     }
 
     /**
-     * Makes async request to Bitcoin Core.
+     * Makes async request to Azart Core.
      *
      * @param string        $method
      * @param mixed         $params
@@ -175,7 +175,7 @@ class Client
     }
 
     /**
-     * Makes request to Bitcoin Core.
+     * Makes request to Azart Core.
      *
      * @param string $method
      * @param array  $params
@@ -204,7 +204,7 @@ class Client
         $defaults = [
             'scheme' => 'http',
             'host'   => '127.0.0.1',
-            'port'   => 8332,
+            'port'   => 9798,
             'user'   => '',
             'pass'   => '',
         ];
@@ -249,7 +249,7 @@ class Client
     {
         $error = null;
         if ($response->hasError()) {
-            $error = new Exceptions\BitcoindException($response->error());
+            $error = new Exceptions\AzartdException($response->error());
         }
 
         if (is_callable($callback)) {
@@ -271,7 +271,7 @@ class Client
             $exception->hasResponse() &&
             $exception->getResponse()->hasError()
         ) {
-            $exception = new Exceptions\BitcoindException(
+            $exception = new Exceptions\AzartdException(
                 $exception->getResponse()->error()
             );
         }
@@ -289,7 +289,7 @@ class Client
     }
 
     /**
-     * Converts amount from satoshi to bitcoin.
+     * Converts amount from satoshi to azart.
      *
      * @param int $amount
      *
@@ -301,7 +301,7 @@ class Client
     }
 
     /**
-     * Converts amount from bitcoin to satoshi.
+     * Converts amount from azart to satoshi.
      *
      * @param float $amount
      *

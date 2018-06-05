@@ -1,6 +1,6 @@
 <?php
 
-namespace Denpa\Bitcoin;
+namespace AzartPay\Azart;
 
 use Psr\Http\Message\StreamInterface;
 

@@ -1,10 +1,10 @@
 <?php
 
-use Denpa\Bitcoin;
-use Denpa\Bitcoin\Exceptions;
+use AzartPay\Azart;
+use AzartPay\Azart\Exceptions;
 use GuzzleHttp\Psr7\BufferStream;
 
-class BitcoindResponseTest extends TestCase
+class AzartdResponseTest extends TestCase
 {
     /**
      * Set up test.
@@ -16,7 +16,7 @@ class BitcoindResponseTest extends TestCase
         parent::setUp();
 
         $this->guzzleResponse = $this->getBlockResponse();
-        $this->response = Bitcoin\BitcoindResponse::createFrom($this->guzzleResponse);
+        $this->response = Azart\AzartdResponse::createFrom($this->guzzleResponse);
         $this->response = $this->response->withHeader('X-Test', 'test');
     }
 
@@ -35,7 +35,7 @@ class BitcoindResponseTest extends TestCase
 
     public function testNoResult()
     {
-        $response = Bitcoin\BitcoindResponse::createFrom(
+        $response = Azart\AzartdResponse::createFrom(
             $this->rawTransactionError()
         );
 
@@ -64,15 +64,15 @@ class BitcoindResponseTest extends TestCase
     {
         $guzzleResponse = $this->getBlockResponse();
 
-        $response = Bitcoin\BitcoindResponse::createFrom($guzzleResponse);
+        $response = Azart\AzartdResponse::createFrom($guzzleResponse);
 
-        $this->assertInstanceOf(Bitcoin\BitcoindResponse::class, $response);
+        $this->assertInstanceOf(Azart\AzartdResponse::class, $response);
         $this->assertEquals($response->response(), $guzzleResponse);
     }
 
     public function testError()
     {
-        $response = Bitcoin\BitcoindResponse::createFrom(
+        $response = Azart\AzartdResponse::createFrom(
             $this->rawTransactionError()
         );
 
@@ -362,7 +362,7 @@ class BitcoindResponseTest extends TestCase
     public function testSerialize()
     {
         $serializedContainer = serialize($this->response->getContainer());
-        $class = Bitcoin\BitcoindResponse::class;
+        $class = Azart\AzartdResponse::class;
 
         $serialized = sprintf(
             'C:%u:"%s":%u:{%s}',

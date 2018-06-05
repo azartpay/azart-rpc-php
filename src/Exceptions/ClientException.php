@@ -1,6 +1,6 @@
 <?php
 
-namespace Denpa\Bitcoin\Exceptions;
+namespace AzartPay\Azart\Exceptions;
 
 use RuntimeException;
 

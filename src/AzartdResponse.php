@@ -1,10 +1,10 @@
 <?php
 
-namespace Denpa\Bitcoin;
+namespace AzartPay\Azart;
 
 use Psr\Http\Message\ResponseInterface;
 
-class BitcoindResponse implements
+class AzartdResponse implements
     ResponseInterface,
     \ArrayAccess,
     \Countable,
@@ -160,7 +160,7 @@ class BitcoindResponse implements
      *
      * @param \Psr\Http\Message\ResponseInterface $response
      *
-     * @return \Denpa\Bitcoin\BitcoindResponse
+     * @return \AzartPay\Azart\AzartdResponse
      */
     public static function createFrom(ResponseInterface $response)
     {

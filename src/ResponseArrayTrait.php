@@ -1,6 +1,6 @@
 <?php
 
-namespace Denpa\Bitcoin;
+namespace AzartPay\Azart;
 
 trait ResponseArrayTrait
 {
