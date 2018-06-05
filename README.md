@@ -19,7 +19,7 @@ Create new object with url as parameter
 ```php
 use AzartPay\Azart\Client as AzartClient;
 
-$azartd = new AzartClient('http://rpcuser:rpcpassword@localhost:8332/');
+$azartd = new AzartClient('http://rpcuser:rpcpassword@localhost:9798/');
 ```
 or use array to define your azartd settings
 ```php
